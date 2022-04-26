@@ -4,12 +4,33 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/style.css">
+    <link rel="shortcut icon" href="/shortcut-ico.ico" type="image/x-icon">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <title>Library</title>
     <script src="/obj.js"></script>
     <script src="/test.js"></script>
     <script src="script.js"></script>
 </head>
 <body>
-    
+    <div id="header-div">
+        <img src="/book-icon.png" alt="book png">
+        <h1>Library</h1>
+    </div>
+
+    <div id="new-book-side-bar">
+        <h2>Add New Book</h2>
+        <input type="text" name="book-title-input" id="book-title-input" placeholder="Book Title" class="sidebar-option">
+        <input type="text" name="book-author-input" id="book-author-input" placeholder="Book Author" class="sidebar-option">
+        <input type="number" name="book-pages-input" id="book-pages-input" placeholder="Pages" class="sidebar-option">
+        <input type="url" name="book-imgae-input" id="book-image-input" placeholder="Image Url(optional)" class="sidebar-option">
+        <div id="check-div">
+            <h3>Read:</h3>
+            <input type="checkbox" name="read-input" id="read-input">
+        </div>
+        <button type="submit" class="sidebar-option">Add book to library</button>
+    </div>
 </body>
 </html>
