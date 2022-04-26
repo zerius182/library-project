@@ -15,12 +15,3 @@ Book.prototype.ReadBook = function(){
 Book.prototype.AddImgUrl = function(newUrl){
     this.imgUrl = newUrl
 }
-
-let testBook = new Book("test-title", "test-author", 666);
-testBook.ReadBook();
-testBook.AddImgUrl("www.google.com");
-bookLibrary.push(testBook);
-let test2 = new Book("yo", "yo", 999);
-bookLibrary.push(test2);
-
-console.log(bookLibrary)
