@@ -1,3 +1,4 @@
+/*This file will be deleted*/
 let testBook = new Book("test-title", "test-author", 666);
 testBook.ReadBook();
 testBook.AddImgUrl("www.google.com");
