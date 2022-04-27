@@ -5,16 +5,16 @@ function Book(title, author, pages){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.imgUrl = "https://demofree.sirv.com/nope-not-here.jpg"
     this.read = false;
+    this.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
 }
 
 Book.prototype.ReadBook = function(){
     this.read = true;
 }
 
-Book.prototype.AddImgUrl = function(newUrl){
-    this.imgUrl = newUrl
+Book.prototype.AddImageUrl = function(imageUrl){
+    this.imgUrl = imageUrl
 }
 
 Book.prototype.ShowInfoInConsole = function(){
@@ -65,6 +65,12 @@ function createBookCard(bookToDisplay){
 
 }
 
+function populateBookGrid(libraryArray){
+    libraryArray.forEach(book =>{
+        createBookCard(book)
+    })
+}
+
 
 
 
@@ -74,4 +80,8 @@ function createBookCard(bookToDisplay){
 
 addNewBook("Wheel of Time", "Robert Jordan", 800);
 addNewBook("Bible", "God", 7777);
-createBookCard(bookLibrary[0]);
+addNewBook("Necronomicom", "Satan", 666);
+bookLibrary[0].AddImageUrl("https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
+
+
+populateBookGrid(bookLibrary);
