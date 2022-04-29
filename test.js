@@ -16,3 +16,5 @@ bookLibrary.push(test2);
         }
     }
 })*/
+"https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
+"https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg"
