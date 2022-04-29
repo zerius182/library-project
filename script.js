@@ -16,6 +16,10 @@ Book.prototype.ReadBook = function(){
     this.read = true;
 }
 
+Book.prototype.UnRead = function(){
+    this.read = false;
+}
+
 Book.prototype.AddImageUrl = function(imageUrl){
     this.imgUrl = imageUrl;
 }
@@ -48,7 +52,26 @@ function createBookCard(bookToDisplay){
     bookCardTitle.textContent = bookToDisplay.title;
     bookCardAuthor.textContent = bookToDisplay.author;
     bookCardPages.textContent = bookToDisplay.pages;
-
+    newBookCard.id = bookToDisplay.title;
+    bookCardReadButton.addEventListener('click', function handleClick(event) {
+        bookLibrary.forEach(book =>{
+            if(book.title === event.target.parentElement.id){
+                if (book.read){
+                    book.UnRead();
+                    bookCardReadButton.classList.remove("book-read");
+                    bookCardReadButton.classList.add("book-not-read");
+                    bookCardReadButton.textContent = "Not Read"
+                }
+                else{
+                    book.ReadBook();
+                    bookCardReadButton.classList.remove("book-not-read");
+                    bookCardReadButton.classList.add("book-read");
+                    bookCardReadButton.textContent = "Read"     
+                }
+            }
+        })
+      });
+    
     bookCardImg.classList.add("card-image")
     if(bookToDisplay.read){
         bookCardReadButton.classList.add("book-read");
@@ -96,12 +119,5 @@ function addBookToLibrary(){
 
 }
 
-
-
-
-
-
-
-
-addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
+addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg", true);
 populateBookGrid(bookLibrary);
