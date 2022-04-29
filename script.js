@@ -7,7 +7,7 @@ function Book(title, author, pages, imgUrl){
     this.pages = pages;
     this.read = false;
     this.imgUrl = imgUrl;
-    if(this.imgUrl === undefined){
+    if(this.imgUrl === ""){
         this.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
     }
 }
@@ -17,7 +17,7 @@ Book.prototype.ReadBook = function(){
 }
 
 Book.prototype.AddImageUrl = function(imageUrl){
-    this.imgUrl = imageUrl
+    this.imgUrl = imageUrl;
 }
 
 Book.prototype.ShowInfoInConsole = function(){
@@ -59,7 +59,6 @@ function createBookCard(bookToDisplay){
         bookCardReadButton.textContent = "Not Read"
 
     }
-
     newBookCard.appendChild(bookCardImg);
     newBookCard.appendChild(bookCardTitle);
     newBookCard.appendChild(bookCardAuthor);
@@ -74,6 +73,21 @@ function populateBookGrid(libraryArray){
     })
 }
 
+function addBookToLibrary(){
+    const NewBookTitle = document.querySelector("#book-title-input");
+    const NewBookAuthor = document.querySelector("#book-author-input");
+    const NewBookPages = document.querySelector("#book-pages-input");
+    const NewBookImage = document.querySelector("#book-image-input");
+    const NewBookRead = document.querySelector("#read-input");
+    console.log(NewBookImage.value);
+    addNewBook(NewBookTitle.value, NewBookAuthor.value, NewBookPages.value, NewBookImage.value);
+    bookGrid.innerHTML = "";
+    populateBookGrid(bookLibrary);
+    NewBookTitle.value = "";
+    NewBookAuthor.value = "";
+    NewBookPages.value = "";
+    NewBookImage.value = "";
+}
 
 
 
@@ -81,9 +95,7 @@ function populateBookGrid(libraryArray){
 
 
 
-addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
-addNewBook("Bible", "God", 7777);
-addNewBook("Necronomicom", "Satan", 666, "https://www.sideshow.com/storage/product-images/905430/book-of-the-dead-necronomicon_evil-dead-ii_silo.png");
 
-
+const test = addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
+test.ShowInfoInConsole();
 populateBookGrid(bookLibrary);
