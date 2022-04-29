@@ -1,11 +1,11 @@
 const bookGrid = document.querySelector("#book-grid");
 const bookLibrary = [];
 
-function Book(title, author, pages, imgUrl){
+function Book(title, author, pages, imgUrl, read){
     this.title = title;
     this.author = author;
     this.pages = pages;
-    this.read = false;
+    this.read = read;
     this.imgUrl = imgUrl;
     if(this.imgUrl === ""){
         this.imgUrl = "https://upload.wikimedia.org/wikipedia/commons/6/65/No-Image-Placeholder.svg"
@@ -28,8 +28,8 @@ Book.prototype.ShowInfoInConsole = function(){
     }
 }
 
-function addNewBook(newTitle, newAuthor, newPages, newImgUrl){
-    let newBook = new Book(newTitle, newAuthor, newPages, newImgUrl);
+function addNewBook(newTitle, newAuthor, newPages, newImgUrl, newRead){
+    let newBook = new Book(newTitle, newAuthor, newPages, newImgUrl, newRead);
     bookLibrary.push(newBook);
 }
 
@@ -79,14 +79,21 @@ function addBookToLibrary(){
     const NewBookPages = document.querySelector("#book-pages-input");
     const NewBookImage = document.querySelector("#book-image-input");
     const NewBookRead = document.querySelector("#read-input");
-    console.log(NewBookImage.value);
-    addNewBook(NewBookTitle.value, NewBookAuthor.value, NewBookPages.value, NewBookImage.value);
+    if(NewBookRead.checked){
+        addNewBook(NewBookTitle.value, NewBookAuthor.value, NewBookPages.value, NewBookImage.value, true);
+    }
+    else{
+        addNewBook(NewBookTitle.value, NewBookAuthor.value, NewBookPages.value, NewBookImage.value, false);
+
+    }
     bookGrid.innerHTML = "";
-    populateBookGrid(bookLibrary);
     NewBookTitle.value = "";
     NewBookAuthor.value = "";
     NewBookPages.value = "";
     NewBookImage.value = "";
+    NewBookRead.checked = false;
+    populateBookGrid(bookLibrary);
+
 }
 
 
@@ -96,6 +103,5 @@ function addBookToLibrary(){
 
 
 
-const test = addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
-test.ShowInfoInConsole();
+addNewBook("The Eye of the World", "Robert Jordan", 800, "https://i.gr-assets.com/images/S/compressed.photo.goodreads.com/books/1337818095l/228665.jpg");
 populateBookGrid(bookLibrary);
