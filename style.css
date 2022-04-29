@@ -8,7 +8,7 @@
 }
 
 :root{
-    --project-darker-beige: rgb(168, 168, 130);
+    --project-darker-beige: rgb(170, 170, 125);
 }
 
 #header-div{
@@ -73,7 +73,7 @@
     width: 100%;
     min-height: 100vh;
     display: flex;
-    background-color: aqua;
+    background-color: rgba(210, 210, 210, 0.862);
 }
 
 #book-grid{
