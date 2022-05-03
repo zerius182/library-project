@@ -72,7 +72,7 @@ function createBookCard(bookToDisplay){
         })
       });
     
-    bookCardImg.classList.add("card-image")
+    bookCardImg.classList.add("card-image");
     if(bookToDisplay.read){
         bookCardReadButton.classList.add("book-read");
         bookCardReadButton.textContent = "Read"
